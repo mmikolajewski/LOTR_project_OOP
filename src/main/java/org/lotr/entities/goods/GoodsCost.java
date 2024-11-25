@@ -5,6 +5,7 @@ package org.lotr.entities.goods;
  */
 public class GoodsCost {
 
+    @SuppressWarnings("CanBeFinal")
     int[] cost = new int[GoodsType.values().length];
 
     /**
@@ -14,7 +15,7 @@ public class GoodsCost {
     }
 
     /**
-     * Create cost object with inital values
+     * Create cost object with initial values
      *
      * @param mithril amount of mithril to add
      * @param wood    amount of wood to add
@@ -53,7 +54,7 @@ public class GoodsCost {
     /**
      * Multiply cost
      *
-     * @param times
+     * @param times how many times to multiply
      */
     public void mul(int times){
         for (GoodsType gt : GoodsType.values()) {
@@ -105,7 +106,7 @@ public class GoodsCost {
     /**
      * Set value of GoodsType.MITHRIL component
      *
-     * @param value value of GoogsType.MITHRIL component
+     * @param value value of GoodsType.MITHRIL component
      */
     public void setMithril(int value) {
         this.cost[GoodsType.MITHRIL.ordinal()] = value;
@@ -116,6 +117,7 @@ public class GoodsCost {
      *
      * @return value of GoodsType.WOOD component
      */
+    @SuppressWarnings("GrazieInspection")
     public int getWood() {
         return this.cost[GoodsType.WOOD.ordinal()];
     }
@@ -123,8 +125,9 @@ public class GoodsCost {
     /**
      * Set value of GoodsType.WOOD component
      *
-     * @param value value of GoogsType.WOOD component
+     * @param value value of GoodsType.WOOD component
      */
+    @SuppressWarnings("GrazieInspection")
     public void setWood(int value) {
         this.cost[GoodsType.WOOD.ordinal()] = value;
     }
@@ -134,6 +137,7 @@ public class GoodsCost {
      *
      * @return value of GoodsType.FISH component
      */
+    @SuppressWarnings("GrazieInspection")
     public int getFish() {
         return this.cost[GoodsType.FISH.ordinal()];
     }
@@ -141,8 +145,9 @@ public class GoodsCost {
     /**
      * Set value of GoodsType.FISH component
      *
-     * @param value value of GoogsType.FISH component
+     * @param value value of GoodsType.FISH component
      */
+    @SuppressWarnings("GrazieInspection")
     public void setFish(int value) {
         this.cost[GoodsType.FISH.ordinal()] = value;
     }
