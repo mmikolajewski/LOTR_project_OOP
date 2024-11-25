@@ -72,7 +72,5 @@ public class Main {
         System.out.println("/////");
         System.out.println(team.getCurrentCity().getName());
 
-
-
     }
 }

@@ -1,79 +1,150 @@
-package org.lotr.entities.characters;
+package org.lotr.entities.goods;
 
-import java.util.UUID;
+/**
+ *
+ */
+public class GoodsCost {
 
-public abstract class AbstractCharacter {
-    private final String id;
-    private String name;
-    private int healthPoints;
-    private int attackPower;
-    private int strength;
-    private int stamina;
-    private int fear;
+    int[] cost = new int[GoodsType.values().length];
 
-    public AbstractCharacter(String name, int healthPoints, int attackPower, int strength, int stamina, int fear) {
-        this.id = UUID.randomUUID().toString();
-        this.name = name;
-        this.healthPoints = healthPoints;
-        this.attackPower = attackPower;
-        this.strength = strength;
-        this.stamina = stamina;
-        this.fear = fear;
+    /**
+     * Create cost object with 0 values
+     */
+    public GoodsCost() {
     }
 
-    public String getId() {
-        return id;
+    /**
+     * Create cost object with inital values
+     *
+     * @param mithril amount of mithril to add
+     * @param wood    amount of wood to add
+     * @param fish    amount of fish to add
+     */
+    public GoodsCost(int mithril, int wood, int fish) {
+        this.cost[GoodsType.MITHRIL.ordinal()] = mithril;
+        this.cost[GoodsType.WOOD.ordinal()] = wood;
+        this.cost[GoodsType.FISH.ordinal()] = fish;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Add cost object
+     *
+     * @param goodsCost cost object to add
+     */
+    public void add(GoodsCost goodsCost) {
+        for (GoodsType gt : GoodsType.values()) {
+            this.cost[gt.ordinal()] += goodsCost.getValue(gt);
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * Adding individual values to the cost object
+     *
+     * @param mithril amount of mithril to add
+     * @param wood    amount of wood to add
+     * @param fish    amount of fish to add
+     */
+    public void add(int mithril, int wood, int fish) {
+        this.cost[GoodsType.MITHRIL.ordinal()] += mithril;
+        this.cost[GoodsType.WOOD.ordinal()] += wood;
+        this.cost[GoodsType.FISH.ordinal()] += fish;
     }
 
-    public int getHealthPoints() {
-        return healthPoints;
+    /**
+     * Multiply cost
+     *
+     * @param times
+     */
+    public void mul(int times){
+        for (GoodsType gt : GoodsType.values()) {
+            this.cost[gt.ordinal()] *= times;
+        }
     }
 
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
+    /**
+     * Multiply new cost and add to cost
+     *
+     * @param cost  new cost
+     * @param times quantity of new cost
+     */
+    public void mulAndAdd(GoodsCost cost,  int times){
+        for (GoodsType gt : GoodsType.values()) {
+            this.cost[gt.ordinal()] += cost.getValue(gt) * times;
+        }
     }
 
-    public int getAttackPower() {
-        return attackPower;
+    /**
+     * Get individual value of component
+     *
+     * @param goodsType component enum
+     * @return          value of component
+     */
+    public int getValue(GoodsType goodsType) {
+        return this.cost[goodsType.ordinal()];
     }
 
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    /**
+     * Set individual value of component
+     *
+     * @param goodsType component enum
+     * @param value     value of component
+     */
+    public void setValue(GoodsType goodsType, int value) {
+        this.cost[goodsType.ordinal()] = value;
     }
 
-    public int getStrength() {
-        return strength;
+    /**
+     * Get value of GoodsType.MITHRIL component
+     *
+     * @return value of GoodsType.MITHRIL component
+     */
+    public int getMithril() {
+        return this.cost[GoodsType.MITHRIL.ordinal()];
     }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
+    /**
+     * Set value of GoodsType.MITHRIL component
+     *
+     * @param value value of GoogsType.MITHRIL component
+     */
+    public void setMithril(int value) {
+        this.cost[GoodsType.MITHRIL.ordinal()] = value;
     }
 
-    public int getStamina() {
-        return stamina;
+    /**
+     * Get value of GoodsType.WOOD component
+     *
+     * @return value of GoodsType.WOOD component
+     */
+    public int getWood() {
+        return this.cost[GoodsType.WOOD.ordinal()];
     }
 
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
+    /**
+     * Set value of GoodsType.WOOD component
+     *
+     * @param value value of GoogsType.WOOD component
+     */
+    public void setWood(int value) {
+        this.cost[GoodsType.WOOD.ordinal()] = value;
     }
 
-    public int getFear() {
-        return fear;
+    /**
+     * Get value of GoodsType.FISH component
+     *
+     * @return value of GoodsType.FISH component
+     */
+    public int getFish() {
+        return this.cost[GoodsType.FISH.ordinal()];
     }
 
-    public void setFear(int fear) {
-        this.fear = fear;
+    /**
+     * Set value of GoodsType.FISH component
+     *
+     * @param value value of GoogsType.FISH component
+     */
+    public void setFish(int value) {
+        this.cost[GoodsType.FISH.ordinal()] = value;
     }
-
-    public abstract void attack();
-
 
 }
