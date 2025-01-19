@@ -19,7 +19,7 @@ public abstract class AbstractBuilding {
 
     public void upgrade() {
         level++;
-        System.out.println(name + " has been upgraded to level " + level);
+        System.out.println(name + " poziom został UP" + level);
     }
 
     public abstract void performAction();

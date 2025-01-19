@@ -18,7 +18,6 @@ public class Region {
 
     public void addCity(City city) {
         cities.add(city);
-        System.out.println(city.getName() + " has been added to the region " + name);
     }
 
     public List<City> getCities() {

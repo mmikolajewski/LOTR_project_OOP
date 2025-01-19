@@ -12,7 +12,7 @@ public class BasicWorld {
         this.regions = new ArrayList<>();
     }
 
-    // Singleton Pattern - zapewnia, że jest tylko jeden świat
+    // Singleton- zapewnia, że jest tylko jeden świat, przenalizuj sobie
     public static BasicWorld getInstance() {
         if (instance == null) {
             instance = new BasicWorld();
@@ -22,7 +22,6 @@ public class BasicWorld {
 
     public void addRegion(Region region) {
         regions.add(region);
-        System.out.println(region.getName() + " has been added to Middle Earth.");
     }
 
     public List<Region> getRegions() {
