@@ -7,7 +7,6 @@ public class Tavern extends AbstractBuilding{
 
     @Override
     public void performAction() {
-        System.out.println("Tavern recruits heroes.");
         // Logika rekrutacji postaci
     }
 }

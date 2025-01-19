@@ -14,5 +14,7 @@ public class DistanceCalculator {
         double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         long travelTimeInSeconds = (long) (distance * 5); // 5 sekund na jednostkę odległości
         return travelTimeInSeconds;
+        //kwestai to usprawenienia albo wywalenia,
+        // wpadłem na pomysł wstępny obliczania odległosci poprzez nadanie im koordynatów, po prostu mapa na osi XY i róznice miedzy punktami
     }
 }

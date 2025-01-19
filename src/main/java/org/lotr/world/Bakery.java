@@ -8,7 +8,7 @@ public class Bakery extends AbstractBuilding{
 
     @Override
     public void performAction() {
-        System.out.println("Bakery produces biscuits.");
+        System.out.println("Pieczemy ciasteeeeczka!!!");
         // Logika produkcji sucharków
     }
 }

@@ -25,16 +25,15 @@ public class City {
         return name;
     }
 
-    // Metoda dodająca budynek z ograniczeniem, że może być tylko jeden budynek danego typu
+    // signleton aby istaniłtylko jeden budynek w danym mieście!
     public void addBuilding(AbstractBuilding building) {
         for (AbstractBuilding existingBuilding : buildings) {
             if (existingBuilding.getClass().equals(building.getClass())) {
-                System.out.println("Cannot add another building of type " + building.getClass().getSimpleName() + " in " + name);
+                System.out.println("Ten budynek już istnieje" + building.getClass().getSimpleName() + " in " + name);
                 return;
             }
         }
         buildings.add(building);
-        System.out.println(building.getName() + " has been added to " + name);
     }
 
     public List<AbstractBuilding> getBuildings() {
